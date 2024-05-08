@@ -39,26 +39,27 @@ class BlockChain():
 
     def validateBlock(self, currentBlock):
         #Remove pass
-        pass
+        
         # Create variable previousBlock and save previous block init using "index of current block-1"
-        
+        previousBlock = self.chain[currentBlock.index - 1]
         # Checking whether the current block index is greater than previous block index or not
-        
+        if(currentBlock.index != previousBlock.index + 1):
              # Return False
-        
+              return False
         
         # Calculate hash for previousBlock and store it in previousBlockhash
-        
+        previousBlockHash = previousBlock.calculateHash()
         
         # Set previous block hash to a wrong value when current block index become 2, i.e simulate and invalid block for block index 2
-        
+        if(currentBlock.index == 2):
+            previousBlockHash = previousBlock.calculateHash(time())
         
         # Checking whether the previous block hash and current block hash is equal or not 
-        
+        if(previousBlockHash != currentBlock.previousHash):
             # Return flase if they are not equal
-        
+            return False
         # return True
-        
+        return True
         
 class Block:
     def __init__(self, index, timestamp, transaction, previousHash):
