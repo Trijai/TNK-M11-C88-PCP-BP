@@ -50,7 +50,7 @@
 			{% if blockData %}
 				{% for block in blockData %}
 				 <!--Set style="background-color: red;" for following div if block is not valid-->
-					<div class="accordion-item" {%if block.isValid=false %} style="background-color: red;" {% endif %}>
+					<div class="accordion-item" {%if block.isValid==false %} style="background-color: red;" {% endif %}>
 					<h2 class="accordion-header "style="background-color: none;" id="heading{{block.index}}">
 						<button class="accordion-button collapsed  card-header " type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{block.index}}" aria-expanded="false" aria-controls="collapse{{block.index}}">
 						
